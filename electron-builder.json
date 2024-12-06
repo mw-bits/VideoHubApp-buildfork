@@ -41,6 +41,9 @@
     [
       "portable"
     ]
+    "portable": {
+      "artifactName": "${productName}Portable.${version}.${ext}"
+    }
   },
   "mac": {
     "category": "public.app-category.video",
