@@ -1,0 +1,30 @@
+name: "build"
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    # runs-on: [windows-latest, macos-latest]
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - uses: bahmutov/npm-install@v1
+        with:
+          install-command: npm install --force
+
+      - name: build
+        run: yarn install && yarn electron || true
+
+      - name: ls
+        run: ls ./release
+
+      - name: Use the Upload Artifact GitHub Action
+        uses: actions/upload-artifact@v4
+        with: 
+          name: assets-for-download
+          path: release
