@@ -37,8 +37,8 @@
       "../node_modules/ffmpeg-static",
       "../node_modules/node-ffprobe-installer"
     ],
-    "target": [
-      "nsis",
+    "target": 
+    [
       "portable"
     ]
   },
